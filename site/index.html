@@ -1,22 +1,116 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Ordered Lists</title>
+<html><script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    window.__disableDappDetectionInsertion = true
+
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Assignment 2</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+
 </head>
-<body>
-  <h1>Ordered list</h1>
-  <div>
-    Oreo cookie eating procedure:
-    <ol> <li> Open box</li>
-      <li>Take out cookie</li>
-      <li>Make a Double Oreo
-          <ol><li>Peel off the top part</li>
-          <li>Place another cookie in the middle</li>
-          <li>Put back the top part</li>
-        </ol>
-      <li>Enjoy!</li>
-    </ol>
+
+
+
+<body data-gr-c-s-loaded="true">
+
+  <h1>Menu</h1>
+
+
+
+  <div class="row">
+
+    <div class="b-a-green col-lg-3 col-md-6 col-sm-12">
+
+      <h2 class="1">Chicken</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in
+
+        cursus odio. Nullam cursus blandit fringilla. Fusce sagittis augue
+
+        elit, at volutpat est accumsan a. Nulla facilisi. Nam est odio,
+
+        facilisis ut lorem quis, rutrum sollicitudin elit. Sed iaculis augue
+
+      </p>
+
+    </div>
+
+    <div class="b-a-green col-lg-3 col-md-6 col-sm-12">
+
+      <h2 id="2">Fish</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in
+
+        cursus odio. Nullam cursus blandit fringilla. Fusce sagittis augue
+
+        elit, at volutpat est accumsan a. Nulla facilisi. Nam est odio,
+
+        facilisis ut lorem quis, rutrum sollicitudin elit. Sed iaculis augue
+
+      </p>
+
+    </div>
+
+    <div class="b-a-green col-lg-3 col-md-12 col-sm-12">
+
+      <h2 id="3">Noodles</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in
+
+        cursus odio. Nullam cursus blandit fringilla. Fusce sagittis augue
+
+        elit, at volutpat est accumsan a. Nulla facilisi. Nam est odio,
+
+        facilisis ut lorem quis, rutrum sollicitudin elit. Sed iaculis augue
+
+      </p>
+
+    </div>
+
   </div>
-</body>
-</html>
+
+
+
+
+
+
+
+</body></html>
