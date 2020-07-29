@@ -1,79 +1,78 @@
-<!DOCTYPE html>
-<html>
-  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html><head>
+	<title>Module 2 Assignment</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Wenchy Dutreuil">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
+<script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
 
-  <title>Assignment 2</title>
-
-  <link rel="stylesheet type="text/css" href="https://github.com/ashu54/HTML-css-js-tut/blob/master/site/CSS/style.css"
-
-</head>
-
-
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script></head>
 
 <body data-gr-c-s-loaded="true">
 
-  <h1>Menu</h1>
+	<h1>Lorem Ipsum</h1>
 
+	<div class="row">
 
+		<div class="col-lg-3 col-md-4 section">
+			<h1 class="sectionTitle" style="background-color:red">Chicken</h1>
 
-  <div class="row">
+			<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+		</div>
 
-    <div class="b-a-green col-lg-3 col-md-6 col-sm-12">
+		<div class="col-lg-3 col-md-4 section">
+			<h1 class="sectionTitle" style="background-color:green">Beef</h1>
 
-      <h2 class="1">Chicken</h2>
+			<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+		</div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in
+		<div class="col-lg-3 col-md-9 section">
+			<h1 class="sectionTitle" style="background-color:blue">Stew</h1>
 
-        cursus odio. Nullam cursus blandit fringilla. Fusce sagittis augue
+			<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+		</div>
 
-        elit, at volutpat est accumsan a. Nulla facilisi. Nam est odio,
-
-        facilisis ut lorem quis, rutrum sollicitudin elit. Sed iaculis augue
-
-      </p>
-
-    </div>
-
-    <div class="b-a-green col-lg-3 col-md-6 col-sm-12">
-
-      <h2 id="2">Fish</h2>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in
-
-        cursus odio. Nullam cursus blandit fringilla. Fusce sagittis augue
-
-        elit, at volutpat est accumsan a. Nulla facilisi. Nam est odio,
-
-        facilisis ut lorem quis, rutrum sollicitudin elit. Sed iaculis augue
-
-      </p>
-
-    </div>
-
-    <div class="b-a-green col-lg-3 col-md-12 col-sm-12">
-
-      <h2 id="3">Noodles</h2>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in
-
-        cursus odio. Nullam cursus blandit fringilla. Fusce sagittis augue
-
-        elit, at volutpat est accumsan a. Nulla facilisi. Nam est odio,
-
-        facilisis ut lorem quis, rutrum sollicitudin elit. Sed iaculis augue
-
-      </p>
-
-    </div>
-
-  </div>
-
-
-
+	</div>
 
 
 
